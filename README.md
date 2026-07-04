@@ -8,6 +8,24 @@ using only the Go standard library — zero third-party runtime dependencies.
 This is the **official client SDK** for the main project:
 https://github.com/isi1988/Mailfold
 
+## Why an API key instead of SMTP/IMAP?
+
+You can always talk raw SMTP/IMAP to a mailbox — this API exists because it
+removes work that protocol pair pushes onto every caller: one credential and
+one HTTPS endpoint for both sending and reading (SMTP alone can't read),
+never touching the real mailbox password (a leaked key is revoked on its
+own, individually), built-in recipient/body-size caps and rate limiting, and
+plain HTTPS on port 443 instead of mail ports (587/465/993) that plenty of
+networks block outright. See the
+[full rationale and capability list](https://github.com/isi1988/Mailfold#why-an-api-instead-of-talking-smtpimap-directly)
+in the main project README.
+
+**What this SDK can't do:** attach files when sending, move messages between
+folders, create folders, touch calendars/contacts, or get real-time push for
+new mail — those need a full webmail session, not an API key. See
+["What an API key can and can't do"](https://github.com/isi1988/Mailfold#what-an-api-key-can-and-cant-do)
+for the complete list.
+
 ## Install
 
 ```
