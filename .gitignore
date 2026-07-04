@@ -1,0 +1,22 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Coverage
+*.out
+
+# Go workspace / build cache
+/vendor/
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
